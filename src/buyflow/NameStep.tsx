@@ -37,17 +37,14 @@ export const NameStep: React.FC<NameStepProps> = (props) => {
                 }}
                 value={name}
               ></Form.Control>
-
           </Row>
           <Row className="mb-2 d-grid gap-2 col-4 mx-auto">
-
           <Button size='sm'
                 onClick={handleNext}
               >
                 Next
               </Button>
               {showFormValidationFeedback && <Alert variant='danger'>{showFormValidationFeedback}</Alert>}
-
           </Row>
         </Container>
       </Form>
