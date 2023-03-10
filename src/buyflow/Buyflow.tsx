@@ -9,10 +9,12 @@ interface BuyflowProps {
 
 export enum ProductIds {
   devIns = 'dev_ins',
+  desIns = 'des_ins'
 }
 
 const PRODUCT_IDS_TO_NAMES = {
   [ProductIds.devIns]: 'Developer Insurance',
+  [ProductIds.desIns]: 'Designer Insurance',
 }
 
 const Buyflow: React.FC<BuyflowProps> = (props) => {
