@@ -5,27 +5,20 @@ import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert';
 import FormLabel from 'react-bootstrap/FormLabel'
-import { emailRegex } from '../utils';
 
-interface EmailStepProps {
+interface NameStepProps {
   cb: (field: string, value: string) => void
 }
 
-export const EmailStep: React.FC<EmailStepProps> = (props) => {
-  const [email, setEmail] = useState('');
+export const NameStep: React.FC<NameStepProps> = (props) => {
+  const [name, setName] = useState('');
   const [showFormValidationFeedback, setShowFormValidationFeedback] = useState('')
   const handleNext = () => {
-    email ? setShowFormValidationFeedback("") : setShowFormValidationFeedback("Email field is required.")
-    if(!email){
+    name ? setShowFormValidationFeedback("") : setShowFormValidationFeedback("Name field is required.")
+    if(!name){
         return;
     }
-    const isValidEmail = emailRegex.test(email);
-    if(!isValidEmail){
-      setShowFormValidationFeedback("Invalid email format.");
-      return;
-    }
-
-    props.cb('email', email)
+    props.cb('name', name)
   }
 
   return (
@@ -33,21 +26,19 @@ export const EmailStep: React.FC<EmailStepProps> = (props) => {
       <Form>
         <Container fluid={false}>
           <Row className="mb-2 half-width">
-            <FormLabel>Email</FormLabel>
+            <FormLabel>Full Name</FormLabel>
           </Row>
           <Row className="mb-2 d-grid gap-2 col-4 mx-auto">
           <Form.Control
-                type="email"
-                placeholder="Enter your Email"
+                type="text"
+                placeholder="Enter your full name"
                 onChange={({ target: { value } }) => {
-                  setEmail(value)
+                  setName(value)
                 }}
-                value={email}
+                value={name}
               ></Form.Control>
-
           </Row>
           <Row className="mb-2 d-grid gap-2 col-4 mx-auto">
-
           <Button size='sm'
                 onClick={handleNext}
               >
